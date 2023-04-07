@@ -15,10 +15,11 @@ sealed interface Order {
     fun addProduct(product: String)
 }
 
-class SimpleOrder(
+data class SimpleOrder(
     @BsonId
     override val id: String,
-    override val products: MutableList<String>
+    override val products: MutableList<String>,
+    val version: Long
 ) : Order {
 
     override fun addProduct(product: String) {
